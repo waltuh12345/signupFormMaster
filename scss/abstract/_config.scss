@@ -111,10 +111,6 @@ body {
   border-radius: .25rem;
   color: $clr-neutral200;
   cursor: pointer;
-  transition: .6s;
-  &:hover {
-    background-color: darken($clr-primary400,10%);
-  }
 }
 
 %form-input {
