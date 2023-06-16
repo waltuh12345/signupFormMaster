@@ -1,0 +1,61 @@
+@use '../config' as *;
+
+main {
+  background: url(../img/bg-intro-mobile.png) no-repeat center center/cover;
+  background-color: $clr-primary300;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  
+  .container {
+    padding: 1rem 0;
+    @include container(86%,450px);
+    @include flex-container(column,3rem 1rem);
+  }
+}
+
+@media (min-width: 49rem) {
+  main {
+    background: url(../img/bg-intro-desktop.png) no-repeat center center/cover;
+    background-color: $clr-primary300;
+    .container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: min(90%,950px);
+    }
+  
+    article {
+      flex: 0 2 26rem;
+    }
+
+    aside {
+      flex: 0 1 28rem;
+    }
+  }
+}
+
+main article {
+  text-align: center;
+
+  h1 {
+    color: $clr-neutral100;
+    line-height: 1;
+    @include container(86%,400px);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: $clr-neutral200;
+  }
+}
+
+@media (min-width: 49rem) {
+  main article {
+    text-align: initial;
+
+    h1 {
+      width: 100%;
+    }
+  }
+}

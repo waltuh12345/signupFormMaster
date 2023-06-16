@@ -1,0 +1,91 @@
+@use '../config' as *;
+%border-radius {
+  border-radius: 8px;
+}
+
+$clr-placeholder: darken($clr-neutral300,16%);
+
+aside form {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;;
+}
+
+main section {
+
+  @include dynamic-text-color($clr-accent,$clr-neutral100,$clr-neutral400);
+  @include flex-container(row,0);
+  @extend %border-radius;
+  background-color: $clr-accent;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  div {
+    @include container(60%,300px);
+    padding: .8rem;
+  }
+
+  span {
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 49rem) {
+  main section {
+    div {
+      width: min(100%,1200px);
+    }
+  }
+}
+
+main form {
+  @extend %border-radius;
+  padding: 1.7rem;
+  background-color: $clr-neutral100;
+  @include dynamic-text-color($clr-neutral100,$clr-neutral200,$clr-neutral400);
+  
+  ul {
+    display: grid;
+    gap: .5rem;
+  }
+  
+  li {
+    input {
+      @extend %border-radius;
+      @extend %form-input;
+      border-radius: .25rem;
+
+      
+      &::placeholder {
+        color: $clr-placeholder;
+        font-weight: 600;
+      }
+    }
+
+    .error-message {
+      color: $clr-primary300;
+      font-size: 12px;
+      font-weight: 600;
+      margin: .1rem 0 0 .5rem;
+      opacity: 0;
+    }
+
+    &.warning {
+      @extend %warning;
+    }
+  }
+
+  button {
+    margin: .8rem 0 .5rem 0;
+    width: 100%;
+    @extend %green-btn;
+  }
+
+  footer {
+    color: $clr-neutral300;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.3;
+    @include container(86%,400px);
+    span {
+      color: $clr-primary300;
+    }
+  }
+}
